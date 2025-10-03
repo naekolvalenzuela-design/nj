@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Monthsary ! </title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: #f5f5dc; 
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      color: #4b2e2e;
+      overflow-x: hidden;
+      position: relative;
+    }
+    .section {
+      display: none;
+      min-height: 100vh;
+      padding: 50px 20px;
+    }
+    #home {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .container {
+      background: #fffaf0;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      z-index: 2;
+      position: relative;
+    }
+    h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #b22222;
+    }
+    input {
+      padding: 10px;
+      border: 2px solid #ffb6c1;
+      border-radius: 8px;
+      font-size: 1rem;
+      outline: none;
+      margin-top: 10px;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: #ffb6c1;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #ff91a4;
+    }
+    .message-box {
+      max-width: 700px;
+      margin: auto;
+      background: #fffaf0;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      font-size: 1.2rem;
+      line-height: 1.6;
+      position: relative;
+      z-index: 2;
+    }
+    footer {
+      margin-top: 30px;
+      color: #8b4513;
+      font-weight: bold;
+    }
+
+    /* Floating hearts */
+    .heart {
+      position: fixed;
+      bottom: -20px;
+      color: #ff4d6d;
+      font-size: 20px;
+      animation: floatUp 6s linear forwards;
+      z-index: 1;
+      opacity: 0.8;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-100vh) scale(1.5); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+ 
+  <section id="home" class="section" style="display: flex;">
+    <div class="container">
+      <h1>How many months have we been together?????</h1>
+      <input type="text" id="answer" placeholder="Type your answer here...">
+      <br>
+      <button onclick="checkAnswer()">Submit</button>
+      <p id="feedback"></p>
+    </div>
+  </section>
+
+
+  <section id="message" class="section">
+    <h1> To the love of my life who makes my world brighter 💌</h1>
+    <div class="message-box">
+      <p>
+        Happy 3rd Monthsary, My Love 💙  
+        I know na sa loob ng isang buwang lumipas I wasn't really consistent mas maraming misunderstandings and arguments between us. But we made it, mahal. Another month na tayo pa rin, mahal ang isa't isa. Thank you for never getting tired of understanding me. I'm so lucky to have you as my girlfirend. I couldn't ask for anything more from God because you're already more that what I prayed for.
+        Alam mo mahal, super guilty ako lately kasi I feel na i haven't been the best version of myself for you. Pero promise, I'm learning and trying to be better everyday. Kahit madalas sablay ako, it's still you that i think of and value the most.
+        Every time i realize that you're still here with me, sobrang pasasalamat ko kay Lord. I'll do my best to make it up to you and show you every single day how much you mean to me. Thank you for loving me despite my flaws and imperfections. Thank you for being patient with me and for always being there for me. You are my rock, my support system, and my best friend.
+        
+        MAHAL NA MAHAL KITA, BABY : *
+      </p>
+    </div>
+    <footer> koy koy </footer>
+  </section>
+
+  <script>
+    function checkAnswer() {
+      let ans = document.getElementById("answer").value.trim().toLowerCase();
+      if (ans === "3" || ans === "three") {
+        document.getElementById("home").style.display = "none";
+        document.getElementById("message").style.display = "block";
+        startHearts(); // Start floating hearts once she sees the message
+      } else {
+        document.getElementById("feedback").innerText = "buti nalang talaga mahal kita boss :P";
+      }
+    }
+
+    function startHearts() {
+      setInterval(createHeart, 500);
+    }
+
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerText = "💖";
+
+      heart.style.left = Math.random() * window.innerWidth + "px";
+      heart.style.fontSize = (20 + Math.random() * 20) + "px";
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 6000);
+    }
+  </script>
+</body>
+</html>
